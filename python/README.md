@@ -1,14 +1,16 @@
 # SpecTree Python Implementation
 
-A Python CLI for SpecTree - composable Markdown files with @ references.
+A Python CLI for SpecTree - composable Markdown files using @ references.
 
 ## Installation
 
-(TODO: Need to publish package for this to work)
-
 ```bash
-pip install spectree
+git clone https://github.com/fuzzycomputer/spectree
+cd spectree/python
+pip install -e .
 ```
+
+(TODO: Publish to PyPI)
 
 ## Usage
 
@@ -49,7 +51,7 @@ python/
 
 ```bash
 # Install uv (fast Python package manager)
-# https://docs.astral.sh/uv/getting-started/installation/
+# https://docs.astral.sh/uv/
 
 # Create and activate virtual environment
 uv venv
@@ -77,7 +79,4 @@ uv build
 
 # Install locally to test
 uv pip install dist/*.whl
-
-# Publish to PyPI
-uv publish
 ```
