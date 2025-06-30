@@ -64,10 +64,10 @@ def _render_recursive(path: Path, processing_stack: Set[Path]) -> str:
         line_stripped = line.rstrip('\r\n')
         if line_stripped.startswith('@') and not line_stripped.startswith('@@'):
             # Extract the path after @
-            ref_path_str = line_stripped[1:].strip()
+            ref_path_str = line_stripped[1:]
             
-            # Validate reference syntax - must be entire line content after @
-            if ref_path_str and ref_path_str.endswith('.md') and not ref_path_str.startswith('@'):
+            # Validate reference syntax - must be entire line content after @, no leading whitespace
+            if ref_path_str and ref_path_str.endswith('.md') and not ref_path_str.startswith('@') and not ref_path_str[0].isspace():
                 # Resolve path relative to current file's directory
                 ref_path = path.parent / ref_path_str
                 

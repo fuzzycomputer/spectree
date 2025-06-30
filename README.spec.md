@@ -21,7 +21,7 @@ This document provides additional implementation details for SpecTree beyond the
 ### @ Operator Recognition
 - `@` must be the first character on the line (column 0)
 - No preceding whitespace is allowed
-- The line must contain only `@` followed by the file path
+- The line must contain only `@` followed immediately by the file path (no whitespace between @ and path)
 - Empty lines before or after `@` references are preserved
 
 ### Invalid References

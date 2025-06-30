@@ -225,6 +225,17 @@ class TestSyntaxValidation:
         
         result = render(main_file)
         assert result == "@ref.txt"  # Should be left unchanged
+    
+    def test_invalid_whitespace_after_at_symbol(self, tmp_path):
+        """Test that @ followed by whitespace is not treated as reference."""
+        ref_file = tmp_path / "ref.md"
+        ref_file.write_text("Referenced")
+        
+        main_file = tmp_path / "main.md"
+        main_file.write_text("@ ref.md")
+        
+        result = render(main_file)
+        assert result == "@ ref.md"  # Should be left unchanged
 
 
 class TestErrorHandling:
