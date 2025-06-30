@@ -33,8 +33,9 @@ def main(
 ) -> None:
     """
     Render a SpecTree file by resolving all @ references.
-    
-    Examples:
+
+    \b
+    Use 'spectree FILE' or pipe content via stdin:
         spectree app.md
         cat app.md | spectree
         spectree app.md > output.md

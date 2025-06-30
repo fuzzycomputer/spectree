@@ -7,6 +7,11 @@ A Python CLI for SpecTree - composable Markdown files using @ references.
 ```bash
 git clone https://github.com/fuzzycomputer/spectree
 cd spectree/python
+
+# Using uv (recommended)
+uv pip install -e .
+
+# Or using pip
 pip install -e .
 ```
 
