@@ -1,6 +1,6 @@
 # SpecTree
 
-A simple format for composable instruction trees using Markdown with `@` references.
+A simple format for composable Markdown trees using `@` references.
 
 ## What is SpecTree?
 
@@ -38,7 +38,7 @@ SpecTree resolves these references into a single, complete Markdown document.
 
 ## Implementations
 
-- [Python](./python) - Install with `pip install spectree`
+- [Python](./python) - Install with `pip install spectree-md`
 - [JavaScript](./javascript) - Install with `npm install spectree` *(coming soon)*
 
 ## Motivation

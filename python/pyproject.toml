@@ -1,5 +1,5 @@
 [project]
-name = "spectree"
+name = "spectree-md"
 version = "0.1.0"
 description = "Composable Markdown trees using @ references"
 readme = "README.md"
@@ -21,6 +21,9 @@ dev = [
 
 [tool.ruff]
 target-version = "py310"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spectree"]
 
 [build-system]
 requires = ["hatchling"]
