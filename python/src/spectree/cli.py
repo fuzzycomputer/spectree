@@ -13,7 +13,6 @@ from rich.console import Console
 
 from .core import render, CircularReferenceError
 
-
 app = typer.Typer(
     name="spectree",
     help="Render SpecTree Markdown files by resolving @ references.",
@@ -23,6 +22,10 @@ app = typer.Typer(
 console = Console()
 error_console = Console(stderr=True)
 
+def panic(message: str, code: int = 1) -> None:
+    """Print error message and exit."""
+    error_console.print(f"❌ {message}", style="red")
+    raise typer.Exit(code)
 
 @app.command()
 def main(
@@ -78,16 +81,13 @@ def main(
         print(result, end="")
         
     except FileNotFoundError as e:
-        error_console.print(f"[red]Error:[/red] {e}", style="red")
-        raise typer.Exit(1)
+        panic(f"File not found: {e}")
     
     except CircularReferenceError as e:
-        error_console.print(f"[red]Error:[/red] {e}", style="red")
-        raise typer.Exit(1)
+        panic(f"Circular reference: {e}")
     
     except Exception as e:
-        error_console.print(f"[red]Unexpected error:[/red] {e}", style="red")
-        raise typer.Exit(1)
+        panic(f"Unexpected error: {e}")
 
 
 if __name__ == "__main__":
